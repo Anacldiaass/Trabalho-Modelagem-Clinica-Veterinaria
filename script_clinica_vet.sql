@@ -18,12 +18,12 @@ CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`Veterinários`
+-- Table `mydb`.`Veterinarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Veterinários` (
-  `CRMv` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `mydb`.`Veterinarios` (
+  `CRMv` VARCHAR(20) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
-  `Data_Admissão` DATE NOT NULL,
+  `Data_Admissao` DATE NOT NULL,
   `Salario` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`CRMv`))
 ENGINE = InnoDB;
@@ -33,7 +33,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Clientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Clientes` (
-  `CPF` INT NOT NULL,
+  `CPF` VARCHAR(11) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
   `Telefone` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`CPF`))
@@ -45,10 +45,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Animais` (
   `Nome` VARCHAR(45) NOT NULL,
-  `Ano de nascimento` YEAR NOT NULL,
-  `Raça` VARCHAR(45) NOT NULL,
-  `Codigo` INT NOT NULL,
-  `Clientes_CPF` INT NOT NULL,
+  `Ano_Nascimento` YEAR NOT NULL,
+  `Raca` VARCHAR(45) NOT NULL,
+  `Codigo` INT NOT NULL AUTO_INCREMENT,
+  `Clientes_CPF` VARCHAR(11) NOT NULL,
   PRIMARY KEY (`Codigo`),
   INDEX `fk_Animais_Clientes1_idx` (`Clientes_CPF` ASC) VISIBLE,
   CONSTRAINT `fk_Animais_Clientes1`
@@ -63,22 +63,22 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Consultas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Consultas` (
-  `idConsultas` INT NOT NULL,
-  `motivo` VARCHAR(45) NOT NULL,
-  `data e hora` DATETIME NOT NULL,
+  `ID_CODIGO` INT NOT NULL AUTO_INCREMENT,
+  `Motivo` VARCHAR(255) NOT NULL,
+  `DATA_HORA` DATETIME NOT NULL,
   `Animais_Codigo` INT NOT NULL,
-  `Veterinários_CRMv` INT NOT NULL,
-  PRIMARY KEY (`idConsultas`),
+  `Veterinarios_CRMv` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`ID_CODIGO`),
   INDEX `fk_Consultas_Animais1_idx` (`Animais_Codigo` ASC) VISIBLE,
-  INDEX `fk_Consultas_Veterinários1_idx` (`Veterinários_CRMv` ASC) VISIBLE,
+  INDEX `fk_Consultas_Veterinarios1_idx` (`Veterinarios_CRMv` ASC) VISIBLE,
   CONSTRAINT `fk_Consultas_Animais1`
     FOREIGN KEY (`Animais_Codigo`)
     REFERENCES `mydb`.`Animais` (`Codigo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Consultas_Veterinários1`
-    FOREIGN KEY (`Veterinários_CRMv`)
-    REFERENCES `mydb`.`Veterinários` (`CRMv`)
+  CONSTRAINT `fk_Consultas_Veterinarios1`
+    FOREIGN KEY (`Veterinarios_CRMv`)
+    REFERENCES `mydb`.`Veterinarios` (`CRMv`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
