@@ -4,7 +4,7 @@
 Trabalho acadêmico desenvolvido para a disciplina de Banco de Dados, cobrindo todas as etapas de modelagem para o gerenciamento de uma Clínica Veterinária: Modelo Conceitual (DER), Modelo Lógico (Esquema Relacional e Dicionário de Dados) e Modelo Físico (Script SQL DDL).
 
 ## 🛠️ Divisão de Tarefas
-* **Seu Nome Completo**: Responsável por todas as fases do projeto (Levantamento de requisitos, DER, Esquema Relacional, Dicionário de Dados, Script SQL DDL e documentação do repositório).
+* **Ana Clara Dias**: Responsável por todas as fases do projeto (Levantamento de requisitos, DER, Esquema Relacional, Dicionário de Dados, Script SQL DDL e documentação do repositório).
 
 ## 📁 Arquivos do Repositório
 * 📑 **1_modelo_conceitual.pdf**: Diagrama Entidade-Relacionamento do modelo conceitual (Fase 1).
