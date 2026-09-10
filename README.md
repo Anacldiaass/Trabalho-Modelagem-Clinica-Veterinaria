@@ -1,4 +1,4 @@
-#🐾Projeto de Modelagem de Banco de Dados - Clínica Veterinária
+## 🐾Projeto de Modelagem de Banco de Dados - Clínica Veterinária
 
 ## 📌Descrição do Projeto
 Trabalho acadêmico desenvolvido para a disciplina de Banco de Dados, cobrindo todas as etapas de modelagem para o gerenciamento de uma Clínica Veterinária: Modelo Conceitual (DER), Modelo Lógico (Esquema Relacional e Dicionário de Dados) e Modelo Físico (Script SQL DDL).
